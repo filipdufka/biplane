@@ -16,8 +16,19 @@ public:
 	AFDBiplane();
 
 protected:
+	void Accelerate(float value);
+
 	void Roll(float value);
 	void Pitch(float value);
+	
+	void AccUpdate(float DeltaTime);
+	void SpeedUpdate(float DeltaTime);
+	void LocUpdate(float DeltaTime);
+
+	float thrust;
+	FVector acc;
+	FVector speed;
+
 
 public:
 	// Called every frame
