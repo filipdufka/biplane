@@ -25,6 +25,7 @@ protected:
 	void SpeedUpdate(float DeltaTime);
 	void LocUpdate(float DeltaTime);
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	float thrust;
 	FVector acc;
 	FVector speed;

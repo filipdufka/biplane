@@ -42,7 +42,7 @@ void AFDBiplane::AccUpdate(float DeltaTime) {
 	acc += FVector(0, 0, -9.8f); // gravity
 	acc += fwd * 50 * thrust; // thrust
 	//acc += fwd * 50;
-	acc -= speed * dot;
+	//acc -= speed * dot;
 
 	thrust = FMath::Lerp(thrust, 0.f, 0.02f);
 }
@@ -51,7 +51,7 @@ void AFDBiplane::SpeedUpdate(float DeltaTime) {
 	FVector fwd = GetActorForwardVector();
 	speed += acc * DeltaTime;
 	float dot = 1.f - FMath::Abs(FVector::DotProduct(fwd.GetSafeNormal(), speed.GetSafeNormal()));	
-	//speed = FMath::Lerp(speed, fwd * speed.GetSafeNormal(), 0.01f);
+	speed = FMath::Lerp(speed, fwd * speed.Size(), dot);
 }
 
 void AFDBiplane::LocUpdate(float DeltaTime) {
